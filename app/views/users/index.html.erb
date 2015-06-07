@@ -1,0 +1,8 @@
+<br>
+</ul>
+<% @users.each do |user|%>
+<li>
+	<%=user.email %> : <%= user.role.name %> has <%= user.credits %> credits.
+</li>
+<%end%>
+</ul>
