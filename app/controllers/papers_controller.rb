@@ -17,8 +17,9 @@ class PapersController < ApplicationController
         break
       end
     end
+    current_user.credits+=1
+    current_user.save
     if !@paper.present?
-      current_user.credits+=1
       redirect_to user_path
     end
     @paper.status=1
@@ -40,12 +41,18 @@ class PapersController < ApplicationController
   # POST /papers
   # POST /papers.json
   def create
+    if current_user.credits <=0
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: 'Insuficient credits.' }
+      end
+  else
     @paper = Paper.new(paper_params)
     @paper.author=current_user.email
     respond_to do |format|
       if @paper.save
         @user=current_user
         current_user.credits-=1
+        current_user.save
         format.html { redirect_to users_path, notice: 'Paper was successfully created.' }
         format.json { render :show, status: :created, location: @paper }
       else
@@ -53,6 +60,7 @@ class PapersController < ApplicationController
         format.json { render json: @paper.errors, status: :unprocessable_entity }
       end
     end
+  end
   end
 
   # PATCH/PUT /papers/1
