@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
    # validates :email,
    #  :format   => {
    #    :with => /\A.+@(.+\.)*(edu)\z/i,
-   #    :message => 'must be an valid student email'
+   #    :message => 'must be an valid student email address'
    #  }
 
   private
