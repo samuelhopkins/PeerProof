@@ -9,6 +9,7 @@
 <% if user_signed_in? %>
   <li><%= link_to 'Users', users_path %></li>
   <li><%= link_to 'Upload Paper', new_paper_path %></li>
-  <li><%= link_to 'Download Paper', paper_path(id: 1) %></li>
+  <li><%= link_to 'Download Paper', download_path, 'data-no-turbolink' => true %></li>
+  <li><%= link_to 'Upload Edited Paper', upload_path %></li>
 
 <% end %>

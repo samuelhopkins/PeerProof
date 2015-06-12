@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :papers
+  resources :papers 
   root :to => 'visitors#index'
   devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout'}
   resources :users
@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     get 'login', to: "devise/sessions#new"
     get 'sign_up', to: "devise/registrations#new"
   end
+  get "upload", to: 'papers#upload_edit'
+  get "download", to: 'papers#download'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

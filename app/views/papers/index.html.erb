@@ -18,6 +18,9 @@
          <td><%= paper.filename %></td>
          </tr>
          <tr>
+         <td><%= paper.status %></td>
+         </tr>
+         <tr>
         <td><%= link_to 'Show', paper %></td>
         <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
         <td><%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' } %></td>

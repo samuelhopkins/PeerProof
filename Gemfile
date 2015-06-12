@@ -45,5 +45,9 @@ group :development, :test do
   gem 'rails_layout'
   gem 'bootstrap-sass'
   gem 'rspec'
+  gem 'mail'
+  group :development do
+    gem 'figaro'
+  end
 end
 

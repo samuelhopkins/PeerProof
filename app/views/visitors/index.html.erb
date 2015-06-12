@@ -1,2 +1,9 @@
-<h1> Hey Sam </h1>
+<% if user_signed_in? %>
+<h1> Hey <%= @user.email%> </h1>
+<% if @paper.present? %>
+<p> <%= @paper.author %></p>
+<p> <%= @paper.status %></p>
+<p> <%= @paper.filename %></p>
+<%end%>
+<%end%>
 <p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>

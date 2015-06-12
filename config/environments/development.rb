@@ -14,11 +14,21 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
+ 
+  config.action_mailer.default_url_options = {host: 'localhost', port: 3001}
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
-
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+   config.action_mailer.raise_delivery_errors = true 
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'localhost:3000',
+    user_name:            ENV["username"],
+    password:             ENV["gmail_pass"],
+    authentication:       'plain',
+    enable_starttls_auto: true  }
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails peerproof: development" uuid="7618461f-a6e4-40ff-bc4c-3be96894fd0c">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails peerproof: test" uuid="9e0f51c4-7734-4f72-9f3c-7095a36e5679">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails peerproof: production" uuid="5f920ee0-f476-47de-9345-4988fa6f61da">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
