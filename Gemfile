@@ -28,6 +28,7 @@ gem 'figaro'
 gem 'rails_layout'
 gem 'bootstrap-sass'
 gem 'puma'
+gem 'foreman'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
