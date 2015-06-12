@@ -1,5 +1,5 @@
 class Mailer < ActiveRecord::Base
-	default from: "sam@peerproof.com"
+	
 
 	def sample_email(email,content,filename)
 		attachments[filename] = {
