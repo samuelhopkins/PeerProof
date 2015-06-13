@@ -112,6 +112,7 @@ class PapersController < ApplicationController
         send_data download.file_contents, type: download.content_type, filename: download.filename
         paper.user=current_user
         paper.status='downloaded'
+        paper.updated_at=Time.current
         paper.save
         break
       end

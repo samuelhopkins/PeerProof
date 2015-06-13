@@ -29,6 +29,8 @@ gem 'rails_layout'
 gem 'bootstrap-sass'
 gem 'puma'
 gem 'foreman'
+gem 'whenever', require: false
+gem 'capistrano', '~> 3.4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

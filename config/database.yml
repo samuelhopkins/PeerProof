@@ -83,3 +83,5 @@ production:
   database: peerproof_production
   username: peerproof
   password: <%= ENV['PEERPROOF_DATABASE_PASSWORD'] %>
+
+  
