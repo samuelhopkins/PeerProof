@@ -37,6 +37,9 @@ class PapersController < ApplicationController
       paper.user = nil
       paper.save
       current_user.paper=nil
+      if current_user.credit_flag?
+        current_user.credit_flag=false
+      end
       current_user.save
       edited.author=paper.author
       edited.filename='Edited_'<<paper.filename
@@ -62,7 +65,7 @@ class PapersController < ApplicationController
   def create
     if current_user.paper.present? 
       if current_user.paper.status=='downloaded'
-      self.finish_edit(paper_params)
+        self.finish_edit(paper_params)
       elsif current_user.paper.status=='created'
         flash[:notice]='You took to long to upload an edited version. You must download a new paper'
         current_user.paper=nil
@@ -111,7 +114,7 @@ class PapersController < ApplicationController
 
     papers.each do |paper|
       puts paper.status
-      if paper.status == 'created'
+      if paper.status == 'created' and paper.author != current_user.email
         puts "we got one!"
         download=paper
       end
@@ -121,12 +124,18 @@ class PapersController < ApplicationController
         paper.status='downloaded'
         paper.updated_at=Time.current
         paper.save
-        current_user.credits++
+        current_user.credits+=1
         current_user.save
         break
       end
     end
     if not download.present?
+      puts current_user.credit_flag
+      if not current_user.credit_flag?
+        current_user.credits+=1
+        current_user.credit_flag=1
+        current_user.save
+      end
       flash[:notice]="No papers available to download"
     end
   end
