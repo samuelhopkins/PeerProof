@@ -60,8 +60,15 @@ class PapersController < ApplicationController
   # POST /papers
   # POST /papers.json
   def create
-    if current_user.paper.present? and current_user.paper.status=='downloaded'
+    if current_user.paper.present? 
+      if current_user.paper.status=='downloaded'
       self.finish_edit(paper_params)
+      elsif current_user.paper.status=='created'
+        flash[:notice]='You took to long to upload an edited version. You must download a new paper'
+        current_user.paper=nil
+        current_user.save
+        redirect_to root_path
+      end
     else
       if current_user.credits < 1
         flash[:notice]="Insuficient credits"
@@ -114,6 +121,8 @@ class PapersController < ApplicationController
         paper.status='downloaded'
         paper.updated_at=Time.current
         paper.save
+        current_user.credits++
+        current_user.save
         break
       end
     end

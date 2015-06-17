@@ -1,9 +1,11 @@
 <% if user_signed_in? %>
-<h1> Hey <%= @user.email%> </h1>
-<% if @paper.present? %>
-<p> <%= @paper.author %></p>
-<p> <%= @paper.status %></p>
-<p> <%= @paper.filename %></p>
-<%end%>
-<%end%>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+<h2> Hello <%= @user.email%> </h2>
+<p> You have <%= pluralize(@user.credits,'credit') %> </p>
+<% else %>
+<br>
+<h2>Welcome to PeerProof!</h2>
+<p>  PeerProof is an exchange for students like yourself to have their papers proofread for free! The only codition is that you be a team player and proof read a paper written by a peer! </p>
+<p> Already have an account? <a><%= link_to 'sign in.', new_user_session_path %></a> </p>
+<p> New to PeerProof? Click <a><%= link_to 'sign up', new_user_registration_path %></a> for a free account </p>
+<% end %>
+<p> Confused? Check out the <a><%= link_to 'help page', help_path %></a></p>

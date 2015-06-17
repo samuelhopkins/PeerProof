@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+.navbar-inverse {
+  background-color: #3D6A8B;
+  border-color: #090909;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #DFD6D6;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #FAFAFA;
+  font-size: 1.5em;
+  
+}
+
+.navbar > .container .navbar-brand{
+	margin-left: -50px;
+}
+
+a:visited {
+  color: #96A7EA;
+}

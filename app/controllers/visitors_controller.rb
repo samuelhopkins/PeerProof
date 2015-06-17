@@ -8,4 +8,7 @@ class VisitorsController < ApplicationController
 		end
 	end
 
+	def help
+	end
+
 end

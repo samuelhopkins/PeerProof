@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   get "upload", to: 'papers#upload_edit'
   get "download", to: 'papers#download'
+  get 'help', to: 'visitors#help'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

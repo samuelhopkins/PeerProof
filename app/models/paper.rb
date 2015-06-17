@@ -30,7 +30,6 @@ class Paper < ActiveRecord::Base
 				paper.user=nil
 				paper.status='created'
 				paper.save
-				user.paper=nil
 				user.credits=0
 				user.save
 				if to_destroy.present?
